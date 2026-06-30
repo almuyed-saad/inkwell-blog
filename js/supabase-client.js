@@ -1,27 +1,19 @@
 // ============================================
-// SUPABASE CLIENT
+// SUPABASE CLIENT - HARDCODED KEYS
 // ============================================
 
-// Wait for the CDN script to load
-(function() {
-  // Check if supabase is available from CDN
-  if (typeof supabase === 'undefined') {
-    console.error('❌ Supabase JS library not loaded! Check CDN script.');
-    return;
-  }
+// Supabase configuration (anon key is safe to be public - RLS protects your data)
+const supabaseUrl = 'https://sokhvipepnxapldbzynz.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNva2h2aXBlcG54YXBsZGJ6eW56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3MzIxMTQsImV4cCI6MjA5ODMwODExNH0.bWneo7ALFeyZLfJGhkr-u40-TT7kgvX5vi_9qlOQKLQ';
 
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const supabaseKey = process.env.SUPABASE_ANON_KEY;
+// Create Supabase client
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-  // Create client
-  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-  
-  // Make it available globally
-  window.supabaseClient = supabaseClient;
-  window.supabase = supabaseClient; // Also set as supabase for compatibility
+// Make available globally
+window.supabaseClient = supabaseClient;
+window.supabase = supabaseClient;
 
-  console.log('✅ Supabase client initialized!');
-})();
+console.log('✅ Supabase client initialized!');
 
 // ============================================
 // POST CRUD OPERATIONS
