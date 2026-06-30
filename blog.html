@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Inkwell</title>
+  <meta name="description" content="All essays from Inkwell — search and filter by topic." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234338ca'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='white' text-anchor='middle'>I</text></svg>" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Inkwell" />
+  <meta property="og:title" content="Blog — Inkwell" />
+  <meta property="og:description" content="Browse every essay. Search and filter by topic." />
+  <meta property="og:image" content="https://picsum.photos/seed/inkwell-og/1200/630" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Inkwell<span>.</span></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">🌙</span>
+        </button>
+        <button class="nav__burger" id="navBurger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="page-head">
+    <div class="container">
+      <p class="hero__eyebrow reveal">The Archive</p>
+      <h1 class="page-head__title reveal">All <em>essays</em></h1>
+      <p class="page-head__sub reveal">Browse everything we've written. Search by keyword or filter by topic.</p>
+    </div>
+  </section>
+
+  <!-- CONTROLS -->
+  <section class="container">
+    <div class="controls reveal">
+      <div class="search">
+        <span class="search__icon">⌕</span>
+        <input type="text" id="searchInput" placeholder="Search articles..." />
+      </div>
+      <div class="filters" id="filters"><!-- chips injected by JS --></div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section container" style="padding-top:32px;">
+    <p class="results-count" id="resultsCount"></p>
+    <div class="grid" id="postGrid"><!-- injected by JS --></div>
+    <div class="empty" id="emptyState" hidden>
+      <p class="empty__emoji">🔍</p>
+      <h3>No articles found</h3>
+      <p>Try a different keyword or clear your filters.</p>
+      <button class="btn btn--ghost" id="clearBtn">Clear filters</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="index.html" class="nav__logo">Inkwell<span>.</span></a>
+        <p class="footer__tag">Words worth reading, slowly.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>© 2026 Inkwell. Crafted with care by Almuyed Saad.</p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <!-- ===== SCRIPTS ===== -->
+  <!-- Supabase client MUST be loaded first -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>

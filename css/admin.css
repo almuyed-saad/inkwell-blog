@@ -1,0 +1,681 @@
+/* ============================================
+   ADMIN PANEL STYLES
+   ============================================ */
+
+/* ===== LOGIN ===== */
+.admin-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 40px 20px;
+}
+
+.admin-login .container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.admin-login__box {
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+
+.admin-login__box h1 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.admin-login__box p {
+  color: var(--text-soft);
+  margin-bottom: 24px;
+}
+
+.admin-login__box .field {
+  margin-bottom: 16px;
+}
+
+.admin-login__box .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ===== DASHBOARD ===== */
+.admin-dashboard {
+  padding: 40px 0 60px;
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.admin-header h1 {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+}
+
+.admin-subtitle {
+  color: var(--text-soft);
+}
+
+.admin-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ===== STATS ===== */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.stat-label {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+/* ===== POST LIST ===== */
+.admin-post-list h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.admin-loading {
+  color: var(--text-soft);
+  text-align: center;
+  padding: 40px;
+}
+
+.admin-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-soft);
+}
+
+.post-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.post-item:hover {
+  border-color: var(--accent);
+}
+
+.post-item__info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.post-item__id {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 30px;
+}
+
+.post-item__title {
+  font-weight: 600;
+}
+
+.post-item__category {
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 12px;
+  border-radius: 999px;
+}
+
+.post-item__status {
+  font-size: 0.8rem;
+  padding: 2px 12px;
+  border-radius: 999px;
+}
+
+.post-item__status.published {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.post-item__status.draft {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.post-item__date {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+.post-item__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.post-item__actions button {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.post-item__actions .edit-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.post-item__actions .delete-btn:hover {
+  border-color: #e5484d;
+  color: #e5484d;
+}
+
+.post-item__actions .view-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===== HIDE SECTIONS ===== */
+#loginSection[hidden],
+#dashboardSection[hidden] {
+  display: none !important;
+}
+
+#loginSection {
+  display: flex !important;
+  min-height: 70vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#loginSection[hidden] {
+  display: none !important;
+}
+
+#dashboardSection {
+  display: block !important;
+}
+
+#dashboardSection[hidden] {
+  display: none !important;
+}
+
+/* ===== MODALS ===== */
+.admin-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-modal[hidden] {
+  display: none !important;
+}
+
+.admin-modal__content {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+}
+
+.admin-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.admin-modal__header h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+}
+
+.admin-modal__close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-soft);
+  transition: color 0.3s ease;
+}
+
+.admin-modal__close:hover {
+  color: var(--text);
+}
+
+.admin-modal__delete {
+  max-width: 440px;
+  text-align: center;
+}
+
+.admin-modal__delete h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.admin-modal__delete p {
+  color: var(--text-soft);
+  margin-bottom: 24px;
+}
+
+.admin-modal__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.admin-modal__delete .admin-modal__actions {
+  justify-content: center;
+}
+
+/* ===== FORM IN MODAL ===== */
+#postForm .field {
+  margin-bottom: 16px;
+}
+
+#postForm label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+#postForm input,
+#postForm select,
+#postForm textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+#postForm input:focus,
+#postForm select:focus,
+#postForm textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+#postForm textarea {
+  resize: vertical;
+  min-height: 200px;
+  font-family: ui-monospace, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.field-hint {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+
+#postForm input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+/* ===== MESSAGES ===== */
+.admin-error {
+  color: #e5484d;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.admin-success {
+  color: #16a34a;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .admin-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-actions {
+    width: 100%;
+  }
+
+  .admin-actions .btn {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .post-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .post-item__info {
+    flex-wrap: wrap;
+  }
+
+  .post-item__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .admin-modal__content {
+    padding: 20px;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .post-item__info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-modal__content {
+    padding: 16px;
+  }
+
+  .admin-login__box {
+    padding: 24px;
+  }
+}
+
+/* ============================================
+   DARK MODE FIXES FOR ADMIN PANEL
+   ============================================ */
+
+/* Admin panel text colors in dark mode */
+[data-theme="dark"] .admin-dashboard,
+[data-theme="dark"] .admin-login,
+[data-theme="dark"] .admin-header h1,
+[data-theme="dark"] .admin-subtitle,
+[data-theme="dark"] .admin-post-list h2,
+[data-theme="dark"] .post-item__title,
+[data-theme="dark"] .post-item__date,
+[data-theme="dark"] .post-item__id,
+[data-theme="dark"] .admin-modal__content,
+[data-theme="dark"] .admin-modal__header h2,
+[data-theme="dark"] #postForm label,
+[data-theme="dark"] .field-hint,
+[data-theme="dark"] .stat-label {
+  color: var(--text) !important;
+}
+
+/* Admin login box in dark mode */
+[data-theme="dark"] .admin-login__box {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+[data-theme="dark"] .admin-login__box h1 {
+  color: var(--text) !important;
+}
+
+[data-theme="dark"] .admin-login__box p {
+  color: var(--text-soft) !important;
+}
+
+/* Post items in dark mode */
+[data-theme="dark"] .post-item {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+[data-theme="dark"] .post-item:hover {
+  border-color: var(--accent) !important;
+}
+
+/* Stats cards in dark mode */
+[data-theme="dark"] .stat-card {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+[data-theme="dark"] .stat-number {
+  color: var(--accent) !important;
+}
+
+/* Form inputs in dark mode */
+[data-theme="dark"] #postForm input,
+[data-theme="dark"] #postForm select,
+[data-theme="dark"] #postForm textarea {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+[data-theme="dark"] #postForm input:focus,
+[data-theme="dark"] #postForm select:focus,
+[data-theme="dark"] #postForm textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-soft) !important;
+}
+
+/* Modal in dark mode */
+[data-theme="dark"] .admin-modal__content {
+  background: var(--bg) !important;
+  border-color: var(--border) !important;
+}
+
+[data-theme="dark"] .admin-modal__close {
+  color: var(--text-soft) !important;
+}
+
+[data-theme="dark"] .admin-modal__close:hover {
+  color: var(--text) !important;
+}
+
+/* Buttons in dark mode */
+[data-theme="dark"] .post-item__actions button {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+[data-theme="dark"] .post-item__actions .edit-btn:hover {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+[data-theme="dark"] .post-item__actions .delete-btn:hover {
+  color: #e5484d !important;
+  border-color: #e5484d !important;
+}
+
+[data-theme="dark"] .post-item__actions .view-btn:hover {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Status badges in dark mode */
+[data-theme="dark"] .post-item__status.published {
+  background: #065f46 !important;
+  color: #6ee7b7 !important;
+}
+
+[data-theme="dark"] .post-item__status.draft {
+  background: #78350f !important;
+  color: #fcd34d !important;
+}
+
+/* Category tags in dark mode */
+[data-theme="dark"] .post-item__category {
+  background: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+
+/* Empty state in dark mode */
+[data-theme="dark"] .admin-empty {
+  color: var(--text-soft) !important;
+}
+
+/* Login error in dark mode */
+[data-theme="dark"] .admin-error {
+  color: #f87171 !important;
+}
+
+[data-theme="dark"] .admin-success {
+  color: #6ee7b7 !important;
+}
+
+/* ============================================
+   FORMATTING GUIDE
+   ============================================ */
+
+.formatting-guide {
+  margin-top: 12px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.guide-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.guide-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.guide-item:last-child {
+  border-bottom: none;
+}
+
+.guide-example {
+  font-family: ui-monospace, monospace;
+  background: var(--bg);
+  padding: 2px 10px;
+  border-radius: 4px;
+  color: var(--text);
+  min-width: 120px;
+  font-size: 0.8rem;
+}
+
+.guide-arrow {
+  color: var(--text-soft);
+  font-size: 0.8rem;
+}
+
+.guide-result {
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.guide-note {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* Dark mode */
+[data-theme="dark"] .guide-example {
+  background: var(--bg);
+}
+
+[data-theme="dark"] .formatting-guide {
+  background: var(--surface);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .guide-item {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .guide-example {
+    min-width: 80px;
+    font-size: 0.75rem;
+  }
+}

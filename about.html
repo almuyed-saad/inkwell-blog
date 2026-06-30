@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Inkwell</title>
+    <!-- Favicon: lettermark "I" -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234338ca'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='white' text-anchor='middle'>I</text></svg>" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Inkwell" />
+  <meta property="og:title" content="About — Inkwell" />
+  <meta property="og:description" content="The story behind Inkwell and the people who write it." />
+  <meta property="og:image" content="https://picsum.photos/seed/inkwell-og/1200/630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About — Inkwell" />
+  <meta name="twitter:description" content="The story behind Inkwell and the people who write it." />
+
+  <meta name="description" content="The story behind Inkwell and the people who write it." />
+
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Inkwell<span>.</span></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="theme-toggle__icon">🌙</span></button>
+        <button class="nav__burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-head about-hero">
+    <div class="container">
+      <p class="hero__eyebrow reveal">Our Story</p>
+      <h1 class="page-head__title reveal">Words worth<br /><em>reading</em>, slowly.</h1>
+      <p class="page-head__sub reveal">Inkwell is a small publication about design, code, and craft, built on the belief that good ideas deserve room to breathe.</p>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="section container mission">
+    <div class="mission__text reveal">
+      <h2 class="section__title">Why we write</h2>
+      <p>In a world that rewards the loud and the fast, we chose a quieter path. Inkwell exists for readers who want depth over noise, ideas they can sit with, sentences worth re-reading, and craft that respects their time.</p>
+      <p>Every essay here is written by hand, edited with care, and published only when it's ready. No clickbait. No filler. Just thoughtful writing on the things we love to build.</p>
+    </div>
+    <div class="mission__stats reveal">
+      <div class="stat"><span class="stat__num" data-target="124">15+</span><span class="stat__label">Essays published</span></div>
+      <div class="stat"><span class="stat__num" data-target="38">9+</span><span class="stat__label">Thousand readers</span></div>
+      <div class="stat"><span class="stat__num" data-target="6">3+</span><span class="stat__label">Years writing</span></div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section container">
+    <div class="section__head reveal"><h2 class="section__title">The people behind it</h2></div>
+    <div class="team">
+      <article class="team__card reveal">
+        <div class="team__avatar" style="--c1:#4338ca;--c2:#7c5cff;">AS</div>
+        <h3 class="team__name">Almuyed Saad</h3>
+        <p class="team__role">Founder & Editor</p>
+        <p class="team__bio">Builds Inkwell and writes about the craft of making things on the web. Believes great software, like great writing, is mostly about what you leave out.</p>
+      </article>
+      <article class="team__card reveal">
+        <div class="team__avatar" style="--c1:#0ea5e9;--c2:#22d3ee;">AA</div>
+        <h3 class="team__name">Arif Azad</h3>
+        <p class="team__role">Design Writer</p>
+        <p class="team__bio">Explores the quiet decisions behind beautiful interfaces, whitespace, typography, and the art of restraint.</p>
+      </article>
+      <article class="team__card reveal">
+        <div class="team__avatar" style="--c1:#e9ae48;--c2:#f97316;">DM</div>
+        <h3 class="team__name">Devid Mishra</h3>
+        <p class="team__role">Code Writer</p>
+        <p class="team__bio">Writes about clarity in code, readable systems, and the empathy of building tools other people have to maintain.</p>
+      </article>
+      <article class="team__card reveal">
+        <div class="team__avatar" style="--c1:#ec4899;--c2:#f43f5e;">NJ</div>
+        <h3 class="team__name">Nusrat jahan</h3>
+        <p class="team__role">Craft Writer</p>
+        <p class="team__bio">Champions slow software and durable design, things built with patience, made to last.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section container">
+    <div class="section__head reveal"><h2 class="section__title">What we believe</h2></div>
+    <div class="values">
+      <div class="value reveal"><span class="value__icon">✶</span><h3>Depth over noise</h3><p>We'd rather publish one essay worth your time than ten that waste it.</p></div>
+      <div class="value reveal"><span class="value__icon">◷</span><h3>Patience pays</h3><p>Good work is rarely rushed. We let ideas rest until they're ready.</p></div>
+      <div class="value reveal"><span class="value__icon">♡</span><h3>Made with care</h3><p>Every detail, from the prose to the pixels, is considered on purpose.</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="newsletter">
+    <div class="container newsletter__inner reveal">
+      <h2>Read something worth your time.</h2>
+      <p>Dive into the archive, no algorithms, just good writing.</p>
+      <a href="blog.html" class="btn btn--primary" style="margin-top:8px;">Explore the blog</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div><a href="index.html" class="nav__logo">Inkwell<span>.</span></a><p class="footer__tag">Words worth reading, slowly.</p></div>
+      <nav class="footer__links">
+        <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom"><p>© 2026 Inkwell. Crafted with care by Almuyed Saad.</p></div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/about.js"></script>
+</body>
+</html>

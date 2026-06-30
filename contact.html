@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Inkwell</title>
+    <!-- Favicon: lettermark "I" -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234338ca'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='white' text-anchor='middle'>I</text></svg>" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Inkwell" />
+  <meta property="og:title" content="Contact — Inkwell" />
+  <meta property="og:description" content="Get in touch with Inkwell." />
+  <meta property="og:image" content="https://picsum.photos/seed/inkwell-og/1200/630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Inkwell" />
+  <meta name="twitter:description" content="Get in touch with Inkwell." />
+
+  <meta name="description" content="Get in touch with Inkwell." />
+
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Inkwell<span>.</span></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="theme-toggle__icon">🌙</span></button>
+        <button class="nav__burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-head">
+    <div class="container">
+      <p class="hero__eyebrow reveal">Say Hello</p>
+      <h1 class="page-head__title reveal">Let's <em>talk</em>.</h1>
+      <p class="page-head__sub reveal">Questions, ideas, or just want to share a thought? Drop a message, I read every one.</p>
+    </div>
+  </section>
+
+  <section class="section container contact">
+    <!-- INFO -->
+    <aside class="contact__info reveal">
+      <h2 class="section__title">Get in touch</h2>
+      <p class="contact__lead">I'd love to hear from you. Reach out and I'll get back as soon as I can.</p>
+
+      <a href="mailto:iamsaad236@gmail.com" class="contact__item">
+        <span class="contact__icon">✉</span>
+        <span><strong>Email</strong><br />iamsaad236@gmail.com</span>
+      </a>
+      <div class="contact__item">
+        <span class="contact__icon">◷</span>
+        <span><strong>Response time</strong><br />Usually within 1–2 days</span>
+      </div>
+      <div class="contact__item">
+        <span class="contact__icon">✶</span>
+        <span><strong>Written by</strong><br />Almuyed Saad</span>
+      </div>
+
+      <div class="contact__social">
+        <a href="#" class="social-btn" aria-label="Twitter">𝕏</a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+        <a href="#" class="social-btn" aria-label="GitHub">⌥</a>
+      </div>
+    </aside>
+
+    <!-- FORM -->
+    <form class="contact__form reveal" id="contactForm" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" />
+        <span class="field__error" data-for="name"></span>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" />
+        <span class="field__error" data-for="email"></span>
+      </div>
+      <div class="field">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+        <span class="field__error" data-for="subject"></span>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Write your message..."></textarea>
+        <span class="field__error" data-for="message"></span>
+      </div>
+      <button type="submit" class="btn btn--primary">Send message</button>
+      <p class="form__success" id="formSuccess" hidden>✓ Thanks, Almuyed will get back to you soon!</p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div><a href="index.html" class="nav__logo">Inkwell<span>.</span></a><p class="footer__tag">Words worth reading, slowly.</p></div>
+      <nav class="footer__links">
+        <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom"><p>© 2026 Inkwell. Crafted with care by Almuyed Saad.</p></div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

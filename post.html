@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post — Inkwell</title>
+    <!-- Favicon: lettermark "I" -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234338ca'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='white' text-anchor='middle'>I</text></svg>" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Inkwell" />
+  <meta property="og:title" content="Inkwell" />
+  <meta property="og:description" content="An essay from Inkwell." />
+  <meta property="og:image" content="https://picsum.photos/seed/inkwell-og/1200/630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Inkwell" />
+  <meta name="twitter:description" content="An essay from Inkwell." />
+
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- READING PROGRESS -->
+  <div class="progress" id="progress"></div>
+
+  <!-- NAVBAR -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Inkwell<span>.</span></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">🌙</span>
+        </button>
+        <button class="nav__burger" id="navBurger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ARTICLE (injected by JS) -->
+  <main id="article"><!-- post content --></main>
+
+  <!-- NOT FOUND STATE -->
+  <section class="container empty" id="notFound" hidden>
+    <p class="empty__emoji">📭</p>
+    <h3>Post not found</h3>
+    <p>That article doesn't seem to exist.</p>
+    <a href="blog.html" class="btn btn--primary">Back to blog</a>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section container" id="relatedSection" hidden>
+    <div class="section__head"><h2 class="section__title">Related reading</h2></div>
+    <div class="grid" id="relatedGrid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="index.html" class="nav__logo">Inkwell<span>.</span></a>
+        <p class="footer__tag">Words worth reading, slowly.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom"><p>© 2026 Inkwell. Crafted with care by Almuyed Saad</p></div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/post.js"></script>
+</body>
+</html>

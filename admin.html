@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel — Inkwell</title>
+  <meta name="description" content="Manage your blog posts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234338ca'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='white' text-anchor='middle'>I</text></svg>" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Inkwell" />
+  <meta property="og:title" content="Admin Panel — Inkwell" />
+  <meta property="og:description" content="Manage your blog posts." />
+  <meta property="og:image" content="https://picsum.photos/seed/inkwell-og/1200/630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Inkwell<span>.</span></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html" class="active">Admin</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">🌙</span>
+        </button>
+        <button class="nav__burger" id="navBurger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== LOGIN SECTION ===== -->
+  <section id="loginSection" class="admin-login">
+    <div class="container">
+      <div class="admin-login__box">
+        <h1>🔐 Admin Login</h1>
+        <p>Enter your credentials to manage blog posts.</p>
+        <form id="loginForm">
+          <div class="field">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="your@email.com" value="iamsaad236@gmail.com" />
+          </div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password" />
+          </div>
+          <button type="submit" class="btn btn--primary">Sign In</button>
+          <p id="loginError" class="admin-error" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADMIN DASHBOARD ===== -->
+  <section id="dashboardSection" class="admin-dashboard" hidden>
+    <div class="container">
+
+      <!-- Header -->
+      <div class="admin-header">
+        <div>
+          <h1>⚡ Inkwell Admin</h1>
+          <p class="admin-subtitle">Manage your blog posts</p>
+        </div>
+        <div class="admin-actions">
+          <button class="btn btn--primary" id="newPostBtn">+ New Post</button>
+          <button class="btn btn--ghost" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="admin-stats" id="adminStats">
+        <div class="stat-card">
+          <span class="stat-number" id="totalPosts">0</span>
+          <span class="stat-label">Total Posts</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="publishedPosts">0</span>
+          <span class="stat-label">Published</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="draftPosts">0</span>
+          <span class="stat-label">Drafts</span>
+        </div>
+      </div>
+
+      <!-- Post List -->
+      <div class="admin-post-list">
+        <h2>All Posts</h2>
+        <div id="postList">
+          <p class="admin-loading">Loading posts...</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== EDITOR MODAL ===== -->
+  <div id="editorModal" class="admin-modal" hidden>
+    <div class="admin-modal__content">
+      <div class="admin-modal__header">
+        <h2 id="editorTitle">Add New Post</h2>
+        <button class="admin-modal__close" id="closeEditor">×</button>
+      </div>
+      <form id="postForm">
+        <input type="hidden" id="postId" value="" />
+
+        <div class="field">
+          <label for="postTitle">Title *</label>
+          <input type="text" id="postTitle" placeholder="Enter post title" required />
+        </div>
+
+        <div class="field">
+          <label for="postCategory">Category</label>
+          <select id="postCategory">
+            <option value="Design">Design</option>
+            <option value="Code">Code</option>
+            <option value="Craft">Craft</option>
+            <option value="Writing">Writing</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="postAuthor">Author</label>
+          <input type="text" id="postAuthor" placeholder="Author name" value="Almuyed Saad" />
+        </div>
+
+        <div class="field">
+          <label for="postImage">Image URL</label>
+          <input type="url" id="postImage" placeholder="https://picsum.photos/seed/.../800/500" />
+          <p class="field-hint">Paste an image URL or use Picsum: https://picsum.photos/seed/your-tag/800/500</p>
+        </div>
+
+<div class="field">
+  <label for="postContent">Content *</label>
+  <textarea id="postContent" rows="12" placeholder="Write your post content here..." required></textarea>
+  
+  <!-- Formatting Guide -->
+  <div class="formatting-guide">
+    <p class="guide-title">📝 How to format your post:</p>
+    <div class="guide-grid">
+      <div class="guide-item">
+        <span class="guide-example">Just write normally</span>
+        <span class="guide-arrow">→</span>
+        <span class="guide-result">Paragraph text</span>
+      </div>
+      <div class="guide-item">
+        <span class="guide-example">**Bold text**</span>
+        <span class="guide-arrow">→</span>
+        <span class="guide-result"><strong>Bold text</strong></span>
+      </div>
+      <div class="guide-item">
+        <span class="guide-example">*Italic text*</span>
+        <span class="guide-arrow">→</span>
+        <span class="guide-result"><em>Italic text</em></span>
+      </div>
+      <div class="guide-item">
+        <span class="guide-example"># Heading</span>
+        <span class="guide-arrow">→</span>
+        <span class="guide-result" style="font-size:1.4rem;font-weight:700;">Heading</span>
+      </div>
+      <div class="guide-item">
+        <span class="guide-example">## Subheading</span>
+        <span class="guide-arrow">→</span>
+        <span class="guide-result" style="font-size:1.2rem;font-weight:600;">Subheading</span>
+      </div>
+      <div class="guide-item">
+        <span class="guide-example">> Quote text</span>
+        <span class="guide-arrow">→</span>
+        <span class="guide-result" style="border-left:3px solid var(--accent);padding-left:12px;font-style:italic;">Quote text</span>
+      </div>
+      <div class="guide-item">
+        <span class="guide-example">- Bullet point</span>
+        <span class="guide-arrow">→</span>
+        <span class="guide-result">• Bullet point</span>
+      </div>
+      <div class="guide-item">
+        <span class="guide-example">---</span>
+        <span class="guide-arrow">→</span>
+        <span class="guide-result" style="border-top:2px solid var(--border);width:60px;"></span>
+      </div>
+    </div>
+    <p class="guide-note">💡 Write your post using the formatting above. Press <strong>Enter</strong> twice for a new paragraph.</p>
+  </div>
+</div>
+
+        <div class="field">
+          <label>
+            <input type="checkbox" id="postPublished" checked />
+            Publish immediately
+          </label>
+        </div>
+
+        <div class="admin-modal__actions">
+          <button type="submit" class="btn btn--primary" id="savePostBtn">Save Post</button>
+          <button type="button" class="btn btn--ghost" id="cancelEditor">Cancel</button>
+        </div>
+        <p id="editorError" class="admin-error" hidden></p>
+        <p id="editorSuccess" class="admin-success" hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== DELETE CONFIRMATION MODAL ===== -->
+  <div id="deleteModal" class="admin-modal" hidden>
+    <div class="admin-modal__content admin-modal__delete">
+      <h2>Delete Post?</h2>
+      <p>Are you sure you want to delete "<span id="deletePostTitle"></span>"? This action cannot be undone.</p>
+      <div class="admin-modal__actions">
+        <button class="btn btn--primary" id="confirmDeleteBtn" style="background:#e5484d;">Yes, Delete</button>
+        <button class="btn btn--ghost" id="cancelDeleteBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="index.html" class="nav__logo">Inkwell<span>.</span></a>
+        <p class="footer__tag">Words worth reading, slowly.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>© 2026 Inkwell. Crafted with care by Almuyed Saad.</p>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+
+</body>
+</html>
